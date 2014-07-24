@@ -47,6 +47,12 @@ function expect(target) {
 //            `YY~~~~YY'
 //             ||    ||
 
+function Human(options){
+    if(!options){
+        options = {};
+    }
+    this.cool = options.cool || true;
+}
 
 function Dog(options){
     if(!options){
