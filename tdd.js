@@ -51,7 +51,7 @@ function Human(options){
     if(!options){
         options = {};
     }
-    this.cool = options.cool || true;
+    this.cool = options.cool || false;
 }
 
 function Dog(options){
@@ -59,9 +59,23 @@ function Dog(options){
         options = {};
     }
     this.color = options.color || "yellow";
-    this.hungry = options.hungry || true;
-    this.status = options.status || 'normal';
+    this.hungry = options.hungry === undefined ? true : options.hungry;
+    this.status = options.status || 'normal';    
 }
+
+Human.prototype.pet = function(Dog){
+  Dog.status = 'happy';
+}
+
+Human.prototype.feed = function(Dog){
+  if (Dog.hungry === false) {
+    Dog.hungry = true;
+  } else {
+    Dog.hungry = false;
+  }
+}
+
+
 
 // ????????
 // ????????
